@@ -16,5 +16,7 @@ ADD http://112.124.9.243/docker-files/java-7u171-openjdk-amd64.tgz /usr/lib/jvm/
 RUN tar xzf /usr/lib/jvm/java-7u171-openjdk-amd64.tgz -C /usr/lib/jvm/ && rm -f /usr/lib/jvm/java-7u171-openjdk-amd64.tgz
 ADD http://112.124.9.243/docker-files/sun-jdk-6u45.tgz /usr/lib/jvm/
 RUN tar xzf /usr/lib/jvm/sun-jdk-6u45.tgz -C /usr/lib/jvm/ && rm -f /usr/lib/jvm/sun-jdk-6u45.tgz
+RUN sed -i 's/TLSv1, TLSv1.1,//g' /etc/java-8-openjdk/security/java.security
+COPY files/root/fix.sh /root/
 
 RUN echo "all done."
