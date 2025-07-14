@@ -1,5 +1,4 @@
 FROM ubuntu:18.04
-MAINTAINER Lawrence-Tang <tangzongsheng@gmail.com>
 
 RUN apt-get update; apt-get install -y  liblz4-tool openjdk-8-jdk bc python rsync \
     git-core gnupg flex bison gperf build-essential \
@@ -11,7 +10,7 @@ RUN apt-get update; apt-get install -y  liblz4-tool openjdk-8-jdk bc python rsyn
 
 RUN echo "root:fa" | chpasswd
 USER root
-ENV USER root
+ENV USER=root
 ADD http://112.124.9.243/docker-files/java-7u171-openjdk-amd64.tgz /usr/lib/jvm/
 RUN tar xzf /usr/lib/jvm/java-7u171-openjdk-amd64.tgz -C /usr/lib/jvm/ && rm -f /usr/lib/jvm/java-7u171-openjdk-amd64.tgz
 ADD http://112.124.9.243/docker-files/sun-jdk-6u45.tgz /usr/lib/jvm/

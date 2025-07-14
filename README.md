@@ -39,25 +39,27 @@ $ ./build-nanopc-t4.sh -F -M
 * Android 5.1.1_r6 (for S5P6818)
 ```
 $ cd /work
-$ tar xvf android-5.1.1_r6-20180206.tar.xz
-$ cd android
+$ tar xvf s5pxx18-android5.git-20181228.tgz
+$ cd s5pxx18-android5
+$ ./sync.sh
 $ cp /usr/bin/ld.gold prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.11-4.6/x86_64-linux/bin/ld
 $ source build/envsetup.sh
 $ lunch aosp_nanopi3-userdebug
 $ make update-api
-$ make -j4
+$ make -j$(nproc)
 ```
 
 * Android 5.1.1_r6 (for S5P4418)
 ```
 $ cd /work
-$ tar xvf android-5.1.1_r6-20180206.tar.xz
-$ cd android
+$ tar xvf s5pxx18-android5.git-20181228.tgz
+$ cd s5pxx18-android5
+$ ./sync.sh
 $ cp /usr/bin/ld.gold prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.11-4.6/x86_64-linux/bin/ld
 $ source build/envsetup.sh
 $ lunch aosp_nanopi2-userdebug
 $ make update-api
-$ make -j4
+$ make -j$(nproc)
 ```
 
 * Android4.4 (for S5P4418)
@@ -69,7 +71,7 @@ $ cd kitkat
 $ sed -i -e "s/) = 3.82))/) = 4.1))/g" build/core/main.mk
 $ source build/envsetup.sh
 $ lunch aosp_nanopi2-userdebug
-$ make -j4
+$ make -j$(nproc)
 ```
 
 * Android 4.4 (for Allwinner H3)
